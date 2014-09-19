@@ -10,9 +10,20 @@ __author__ ="Eduardo Ismael García Pérez"
 __Colaborador__ ="Christian Eduardo Galdamez Blanco"
 
 """
-	Descripción 
+	Como funciona el Script:
+		El Script comienza recorriendo la ruta definida por el usuario
+		Comienza un 'Barrido' por todo el folder, este barrido es llevado acabo con la clase barredora 
+		y su metodo listFile().
+		Cuando se encuentra una carpeta se vuelve a ejecutar el metodo listFile() de forma recursiva para
+		no perder el hilo de todo el barrido y de esta forma asegurar que todos los archivos sean adquiridos.
+
+
+		Cuando el 'barrido' se encuntra en ejecución toma cada archivo y lo copia a otro directorio 
+		(metodo copyFile). Si durante la ejecución se encuntra con un folder, crea un nuevo folder con el mismo nombre en el 
+		directorio definido el respaldo y comienza agregar todos los archivo***s dentro. 
 
 """
+
 class barredora():
 	def __init__(self, path, pathToCopy):
 		self.countFile = 0
